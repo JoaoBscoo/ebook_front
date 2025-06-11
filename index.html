@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciador de Produtos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    input, button {
+      display: block;
+      margin: 5px 0;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Produtos</h1>
+
+  <button id="refresh-button">Consultar Todos os Produtos</button>
+
+  <form id="search-product-form">
+    <input type="number" id="search-id" placeholder="ID do produto para consultar">
+    <button type="submit">Consultar por ID</button>
+  </form>
+
+  <ul id="products"></ul>
+
+  <h2>Adicionar Produto</h2>
+  <form id="add-product-form">
+    <input type="text" name="name" placeholder="Nome do produto" required>
+    <input type="text" name="description" placeholder="Descrição">
+    <input type="number" name="price" step="0.01" placeholder="Preço (ex: 19.90)" required>
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <h2>Atualizar Produto</h2>
+  <form id="update-product-form">
+    <input type="hidden" id="update-id">
+    <input type="text" id="update-name" placeholder="Novo nome" required>
+    <input type="number" id="update-price" step="0.01" placeholder="Novo preço" required>
+    <button type="submit">Atualizar</button>
+  </form>
+
+  <div id="message"></div>
+
+  <script>
+    document.getElementById('refresh-button').addEventListener('click', () => {
+      location.reload();
+    });
+  </script>
+  <script src="app.js"></script>
+
+</body>
+</html>
